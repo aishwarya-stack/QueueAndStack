@@ -1,38 +1,26 @@
 package com.bridgelabz.stackandqueue;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+
+import junit.framework.Assert;
 
 /**
  * Unit test for simple App.
  */
 public class StackandqueueTest 
-    extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public StackandqueueTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( StackandqueueTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	@Test
+	public void given3numbersWhenAddedToStackShouldHaveLastAddedNode()
+	{
+		MyStack mystack=new MyStack();
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode=new MyNode<Integer>(56);
+		mystack.push(myFirstNode);
+		mystack.push(mySecondNode);
+		mystack.push(myThirdNode);
+		INode myNode=mystack.peak();
+		mystack.printStack();
+		Assert.assertEquals(myThirdNode, myNode);
+		}
 }
